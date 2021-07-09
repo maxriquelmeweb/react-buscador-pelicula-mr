@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+import React, { Fragment, useState } from 'react'
 import './App.css';
+import Form from './components/Form';
+import Pelicula from './components/Pelicula';
 
 function App() {
+  const [pelicula, guardarPelicula] = useState({});
+
   return (
-    <div className="App">
+    <Fragment>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h2>
+          Búsqueda de películas
+        </h2>
+        <span>Podrás encontrar películas con su detalle, año, y rating. </span>
       </header>
-    </div>
+      <div>
+        <Form
+          guardarPelicula={guardarPelicula}
+        />
+        <Pelicula
+          pelicula={pelicula}
+        />
+      </div>
+    </Fragment>
   );
 }
 
